@@ -449,64 +449,168 @@
             color: var(--white);
         }
 
-        /* Forms Section */
-        .forms-section {
+        /* Contact Section - Redesigned */
+        .contact-section {
             padding: 100px 0;
-            background-color: var(--light-gray);
+            background: linear-gradient(135deg, rgba(0, 210, 255, 0.05), rgba(58, 123, 213, 0.05));
+            position: relative;
+            overflow: hidden;
         }
 
-        .form-card {
+        .contact-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(0, 210, 255, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .contact-section::after {
+            content: '';
+            position: absolute;
+            bottom: -50%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(58, 123, 213, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .contact-container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-wrapper {
             background: var(--white);
-            border-radius: 20px;
-            padding: 40px;
+            border-radius: 30px;
             box-shadow: var(--card-shadow);
-            height: 100%;
+            overflow: hidden;
         }
 
-        .form-card h3 {
-            font-size: 1.5rem;
+        .contact-info {
+            background: var(--primary-gradient);
+            color: var(--white);
+            padding: 60px 40px;
+            position: relative;
+        }
+
+        .contact-info::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://picsum.photos/seed/contact-pattern/800/800.jpg');
+            opacity: 0.1;
+            mix-blend-mode: overlay;
+        }
+
+        .contact-info h3 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            font-weight: 700;
+            position: relative;
+        }
+
+        .contact-info p {
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            position: relative;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
             margin-bottom: 25px;
+            position: relative;
+        }
+
+        .contact-item i {
+            font-size: 1.5rem;
+            margin-right: 20px;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-item div {
+            flex: 1;
+        }
+
+        .contact-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
             font-weight: 600;
+        }
+
+        .contact-item p {
+            margin: 0;
+            opacity: 0.8;
+        }
+
+        .contact-form {
+            padding: 60px;
+        }
+
+        .contact-form h3 {
+            font-size: 2rem;
+            margin-bottom: 15px;
             background: var(--primary-gradient);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
         }
 
+        .contact-form p {
+            color: var(--dark-gray);
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
+            margin-bottom: 10px;
+            font-weight: 600;
             color: var(--dark-gray);
         }
 
         .form-group input,
-        .form-group select,
         .form-group textarea {
             width: 100%;
-            padding: 12px 15px;
-            border: 1px solid var(--medium-gray);
-            border-radius: 10px;
+            padding: 15px 20px;
+            border: 2px solid var(--medium-gray);
+            border-radius: 15px;
             font-family: inherit;
             font-size: 1rem;
             transition: all 0.3s ease;
+            background: var(--light-gray);
         }
 
         .form-group input:focus,
-        .form-group select:focus,
         .form-group textarea:focus {
             outline: none;
             border-color: var(--teal);
-            box-shadow: 0 0 0 3px rgba(0, 210, 255, 0.1);
+            background: var(--white);
+            box-shadow: 0 0 0 4px rgba(0, 210, 255, 0.1);
         }
 
         .form-group textarea {
             resize: vertical;
-            min-height: 120px;
+            min-height: 150px;
         }
 
         .form-btn {
@@ -514,16 +618,17 @@
             color: var(--white);
             border: none;
             border-radius: 50px;
-            padding: 12px 30px;
+            padding: 15px 40px;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
+            font-size: 1.1rem;
             width: 100%;
-            font-size: 1rem;
         }
 
         .form-btn:hover {
-            filter: brightness(1.1);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 210, 255, 0.3);
         }
 
         /* Footer */
@@ -708,6 +813,14 @@
                 flex-direction: column;
                 align-items: flex-start;
             }
+
+            .contact-info {
+                padding: 40px 30px;
+            }
+
+            .contact-form {
+                padding: 40px 30px;
+            }
         }
 
         @media (max-width: 768px) {
@@ -751,6 +864,15 @@
                 left: 15px;
                 max-width: none;
             }
+
+            .contact-wrapper {
+                flex-direction: column;
+            }
+
+            .contact-info,
+            .contact-form {
+                padding: 40px 30px;
+            }
         }
 
         @media (max-width: 576px) {
@@ -764,6 +886,16 @@
             
             .property-buttons {
                 flex-direction: column;
+            }
+
+            .contact-info h3,
+            .contact-form h3 {
+                font-size: 1.5rem;
+            }
+
+            .contact-info,
+            .contact-form {
+                padding: 30px 20px;
             }
         }
     </style>
@@ -1065,148 +1197,94 @@
         </div>
     </section>
 
-    <!-- Forms Section -->
-    <section class="forms-section" id="contact">
-        <div class="container">
+    <!-- Contact Section - Redesigned -->
+    <section class="contact-section" id="contact">
+        <div class="container contact-container">
             <div class="section-title">
                 <h2>Get In Touch</h2>
                 <p>We're here to help you find the perfect workspace solution</p>
             </div>
             
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-3">
-                    <div class="form-card">
-                        <h3>Contact Us</h3>
-                        <form id="contactForm">
-                            <div class="form-group">
-                                <label for="contactName">Name</label>
-                                <input type="text" id="contactName" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="contactEmail">Email</label>
-                                <input type="email" id="contactEmail" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="contactPhone">Phone</label>
-                                <input type="tel" id="contactPhone" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label for="contactMessage">Message</label>
-                                <textarea id="contactMessage" class="form-control" required></textarea>
-                            </div>
-                            <button type="submit" class="form-btn">Send Message</button>
-                        </form>
+            <div class="contact-wrapper d-flex flex-lg-row flex-column">
+                <div class="contact-info flex-lg-5 flex-12">
+                    <h3>Let's Connect</h3>
+                    <p>Have questions about our spaces? Ready to schedule a tour? Our team is here to help you find the perfect workspace solution.</p>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Visit Us</h4>
+                            <p>123 Business Ave, Downtown<br>City Center, CC 12345</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Call Us</h4>
+                            <p>+1 (555) 123-4567<br>Mon-Fri: 9am-6pm</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email Us</h4>
+                            <p>info@workspacepro.com<br>support@workspacepro.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
                 
-                <!-- <div class="col-md-6 col-lg-3">
-                    <div class="form-card">
-                        <h3>Make an Inquiry</h3>
-                        <form id="inquiryForm">
-                            <div class="form-group">
-                                <label for="inquiryName">Name</label>
-                                <input type="text" id="inquiryName" class="form-control" required>
+                <div class="contact-form flex-lg-7 flex-12">
+                    <h3>Send Us a Message</h3>
+                    <p>Fill out the form below and we'll get back to you as soon as possible.</p>
+                    
+                    <form id="contactForm">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="contactName">Your Name</label>
+                                    <input type="text" id="contactName" class="form-control" required>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="inquiryEmail">Email</label>
-                                <input type="email" id="inquiryEmail" class="form-control" required>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="contactEmail">Email Address</label>
+                                    <input type="email" id="contactEmail" class="form-control" required>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="inquiryPhone">Phone</label>
-                                <input type="tel" id="inquiryPhone" class="form-control">
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="contactPhone">Phone Number</label>
+                                    <input type="tel" id="contactPhone" class="form-control">
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="spaceType">Type of Space</label>
-                                <select id="spaceType" class="form-control" required>
-                                    <option value="">Select a space type</option>
-                                    <option value="virtual">Virtual Office</option>
-                                    <option value="physical">Physical Office</option>
-                                    <option value="private">Private Office</option>
-                                    <option value="shared">Shared Office</option>
-                                    <option value="coworking">Coworking Space</option>
-                                </select>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="contactSubject">Subject</label>
+                                    <input type="text" id="contactSubject" class="form-control" required>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <label for="inquiryMessage">Message</label>
-                                <textarea id="inquiryMessage" class="form-control" required></textarea>
-                            </div>
-                            <button type="submit" class="form-btn">Submit Inquiry</button>
-                        </form>
-                    </div>
-                </div> -->
-                
-                <!-- <div class="col-md-6 col-lg-3">
-                    <div class="form-card">
-                        <h3>Book a Tour</h3>
-                        <form id="tourForm">
-                            <div class="form-group">
-                                <label for="tourName">Name</label>
-                                <input type="text" id="tourName" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="tourEmail">Email</label>
-                                <input type="email" id="tourEmail" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="tourPhone">Phone</label>
-                                <input type="tel" id="tourPhone" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label for="tourDate">Preferred Date</label>
-                                <input type="date" id="tourDate" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="preferredSpace">Preferred Space</label>
-                                <select id="preferredSpace" class="form-control" required>
-                                    <option value="">Select a space</option>
-                                    <option value="downtown">Downtown Hub</option>
-                                    <option value="tech">Tech Plaza</option>
-                                    <option value="creative">Creative Loft</option>
-                                    <option value="virtual">Virtual Business Center</option>
-                                    <option value="executive">Executive Suites</option>
-                                    <option value="startup">Startup Hub</option>
-                                </select>
-                            </div>
-                            <button type="submit" class="form-btn">Book Tour</button>
-                        </form>
-                    </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contactMessage">Your Message</label>
+                            <textarea id="contactMessage" class="form-control" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="form-btn">Send Message</button>
+                    </form>
                 </div>
-                
-                <div class="col-md-6 col-lg-3">
-                    <div class="form-card">
-                        <h3>Request a Quote</h3>
-                        <form id="quoteForm">
-                            <div class="form-group">
-                                <label for="quoteName">Name</label>
-                                <input type="text" id="quoteName" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="quoteEmail">Email</label>
-                                <input type="email" id="quoteEmail" class="form-control" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="quotePhone">Phone</label>
-                                <input type="tel" id="quotePhone" class="form-control">
-                            </div>
-                            <div class="form-group">
-                                <label for="quoteSpaceType">Space Type</label>
-                                <select id="quoteSpaceType" class="form-control" required>
-                                    <option value="">Select a space type</option>
-                                    <option value="virtual">Virtual Office</option>
-                                    <option value="physical">Physical Office</option>
-                                    <option value="private">Private Office</option>
-                                    <option value="shared">Shared Office</option>
-                                    <option value="coworking">Coworking Space</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="requirements">Requirements</label>
-                                <textarea id="requirements" class="form-control" required></textarea>
-                            </div>
-                            <button type="submit" class="form-btn">Request Quote</button>
-                        </form>
-                    </div>
-                </div> -->
             </div>
         </div>
     </section>
@@ -1486,24 +1564,6 @@
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
             alert('Thank you for your message! We will contact you soon.');
-            this.reset();
-        });
-
-        document.getElementById('inquiryForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Your inquiry has been submitted! We will get back to you shortly.');
-            this.reset();
-        });
-
-        document.getElementById('tourForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Your tour has been booked! We will send a confirmation email shortly.');
-            this.reset();
-        });
-
-        document.getElementById('quoteForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Your quote request has been submitted! We will provide a customized quote soon.');
             this.reset();
         });
 
